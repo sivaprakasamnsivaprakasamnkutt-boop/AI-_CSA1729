@@ -1,0 +1,18 @@
+% Define the facts and rules 
+bird(penguin) :- cannot_fly. 
+bird(eagle) :- can_fly. 
+cannot_fly. 
+can_fly :- has_wings. 
+has_wings. 
+% Define the forward chaining rule 
+infer(X) :- bird(X).  
+% Example queries 
+?- infer(penguin). 
+?- infer(eagle). 
+?- infer(crow). 
+infer(X) :- bird(X). 
+infer(X) :- can_fly, X = eagle. 
+infer(X) :- cannot_fly, X = penguin. 
+% Example queries 
+?- infer(crow). 
+?- infer(X).
